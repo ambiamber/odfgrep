@@ -2,7 +2,7 @@ bin_PROGRAMS = odfgrep
 odfgrep_SOURCES = odfgrep.cpp xml.cpp zip.cpp action.cpp unicode.cpp
 
 # set the include path found by configure
-INCLUDES= $(all_includes)
+AM_CPPFLAGS = $(all_includes) -I/usr/include/libxml2
 
 # the library search path.
 odfgrep_LDFLAGS = $(all_libraries) 

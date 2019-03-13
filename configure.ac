@@ -1,7 +1,8 @@
 AC_INIT([odfgrep], [0.1], [odf@tempest-sw.com])
+AC_CONFIG_SRCDIR([src/action.cpp])
+AM_INIT_AUTOMAKE
 
-AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(odfgrep, 0.1)
+AC_CONFIG_HEADERS(config.h)
 
 AC_LANG_CPLUSPLUS
 AC_PROG_CXX

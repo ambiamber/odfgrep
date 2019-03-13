@@ -29,6 +29,7 @@
 
 #include <cstring>
 #include <string>
+#include <cassert>
 
 extern "C"
 {

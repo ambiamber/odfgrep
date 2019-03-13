@@ -1,0 +1,12 @@
+odfgrep - grep utility for searching ODF documents
+
+Currently only text documents are supported. The documents
+must follow the ISO/OASIS Open Document Format standard.
+
+The usual grep command line options are supported, as much
+as make sense for searching documents instead of text files.
+
+The actual pattern matching is handled by Boost.Regex. 
+
+Ray Lischner
+2-Aug-2006

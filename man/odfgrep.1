@@ -1,0 +1,155 @@
+.TH CODEX 1 "Auguest 2, 2006" "Tempest Software" "User Commands"
+.SH NAME
+odfgrep \- search for patterns in Open Document Format (ODF) documents
+.SH SYNOPSIS
+.B odfgrep
+[\fB\-cdEFGhHilLMPqv?V\fR]
+[\fB\-e \fIpattern\fR]
+[\fB\-f \fIfile\fR]
+[\fB\-m \fIcount\fR]
+[\fB\-\-count\fR]
+[\fB\-\-deleted\fR]
+[\fB\-\-regexp=\fIpattern\fR]
+[\fB\-\-extended-regexp\fR]
+[\fB\-\-file=\fIfile\fR]
+[\fB\-\-fixed-strings\fR]
+[\fB\-\-basic-regexp\fR]
+[\fB\-\-no-filename\fR]
+[\fB\-\-with-filename\fR]
+[\fB\-\-ignore-case\fR]
+[\fB\-\-files-with-match\fR]
+[\fB\-\-files-without-match\fR]
+[\fB\-\-max-count=\fIcount\fR]
+[\fB\-\-meta\fR]
+[\fB\-\-perl-regexp\]
+[\fB\-\-quiet\fR]
+[\fB\-\-invert-match\fR]
+[\fB\-\-help\fR]
+[\fB\-\-usage\fR]
+[\fB\-\-version\fR]
+.I pattern
+.I documents...
+.SH DESCRIPTION
+Each file name named on the command line is opened as an
+ISO/OASIS Open Document Format (ODF) document,
+that is, as a ZIP file that contains XML streams. The main content
+stream (content.xml) is extracted according to the OASIS OpenDocument format
+standard.
+Text paragraphs are compared with
+.IR pattern ,
+and matching lines are printed to
+the standard output.
+.PP
+ODF documents use UTF-8 encoding, so the
+.I pattern
+is also interpreted as UTF-8,
+regardless of current locale. All regular expression matching is performed
+internally using UTF-32 code points.
+.SH OPTIONS
+Here are detailed descriptions of all the command line options.
+.TP
+\fB\-c\fR, \fB\-\-count\fR
+Do not echo matching lines, but count the number
+of matches per file (or with \fB\-v\fR, number of
+non-matching lines). Print the count to the standard output.
+.TP
+\fB\-d\fR, \fB\-\-deleted\fR
+Search in text that has been revision-marked for deletion.
+By default, deleted text is skipped.
+.TP
+\fB\-e\fR, \fB\-\-regexp=\fIpattern\fR
+Specify the \fIpattern\fR;
+use this option if
+.I pattern
+starts with \fB\-\fR.
+.TP
+\fB\-E\fR, \fB\-\-extended-regexp\fR
+The
+.I pattern
+uses exended POSIX regexp syntax, in the manner of
+.IR egrep .
+.TP
+\fB\-f\fR, \fB\-\-file=\fIfile\fR
+Read regular expressions from
+.IR file ,
+one per line.
+A match is when any regular expression matches.
+.TP
+\fB\-F\fR, \fB\-\-fixed-strings\fR
+The
+.I pattern
+is a list of newline-separated strings to match, not regular expressions,
+in the manner of
+.IR fgrep .
+.TP
+\fB\-G\fR, \fB\-\-basic-regexp\fR
+The
+.I pattern
+uses basic POSIX syntax, in the manner of
+.IR grep .
+.TP
+\fB\-h\fR, \fB\-\-no-filename\fR
+Do not print filenames, even if multiple files are
+named on command line.
+The default is to print file names only if more
+than one file is named on the command line.
+.TP
+\fB\-H\fR, \fB\-\-with-filename\fR
+Print filenames even if only one file is named on command line.
+The default is to print file names only if more
+than one file is named on the command line.
+.TP
+\fB\-i\fR, \fB\-\-ignore-case\fR
+Ignore case distinctions.
+.TP
+\fB\-l\fR, \fB\-\-files-with-match\fR
+Print only names of files that match
+.IR pattern .
+The default is to print the matching paragraph, too.
+.TP
+\fB\-L\fR, \fB\-\-files-without-match\fR
+Print only names of files that contain no lines
+that match 
+.IR pattern .
+.TP
+\fB\-m\fR, \fB\-\-max-count=\fIcount\fR
+Stop reading a document after finding
+.I count
+matches in that document.
+.TP
+\fB\-M\fR, \fB\-\-meta\fR
+Search metadata in
+.I meta.xml
+in addition to main document in
+.IR content.xml .
+.TP
+\fB\-P\fR, \fB\-\-perl-regexp\fR
+The
+.I pattern
+uses Perl syntax.
+.TP
+\fB\-q\fR, \fB\-\-quiet\fR
+Do not write anything; exit status is 0 for a match or non-zero for no match.
+.TP
+\fB\-v\fR, \fB\-\-invert-match\fR
+Invert match: print lines that do not match
+.IR pattern .
+.TP
+\fB\-?\fR, \fB\-\-help\fR
+Print basic help for command line options.
+.TP
+\fB\-\-usage\fR
+Give a short usage message.
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Print version number and exit.
+
+.SH AUTHOR
+Ray Lischner (odf@tempest-sw.com)
+
+.SH "SEE ALSO"
+.IR egrep (1),
+.IR fgrep (1),
+.IR grep (1),
+.IR perl (1),
+.IR perlreref (1)

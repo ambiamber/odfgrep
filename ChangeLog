@@ -1,0 +1,4 @@
+Fri Aug  4 2006 Ray Lischner <odf@tempest-sw.com>
+  * Fixed typo in odfgrep.cpp (didn't clean up zip objects correctly)
+Wed Aug  2 2006 Ray Lischner <odf@tempest-sw.com>
+  * First release

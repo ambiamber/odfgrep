@@ -13,7 +13,7 @@ Ray Lischner
 
 ## Building odfgrep
 
-Debian/Ubuntu/Mint build dependencies:
+### Debian/Ubuntu/Mint build dependencies:
 
 * libboost-dev
 * libboost-regex1.65-dev
@@ -23,11 +23,33 @@ Debian/Ubuntu/Mint build dependencies:
 * autotools-dev
 * libtool
 
-You can install the dependencies by running this command:
+You can install the dependencies on Debian/Ubuntu/Mint by running this command:
 
 ```bash
 sudo apt install libboost-dev libboost-regex1.65-dev libxml2-dev libzip-dev automake autotools-dev libtool
 ```
+
+### RHEL/CentOS/Fedora build dependencies:
+
+* boost-devel
+* boost-regex
+* libxml2-devel
+* libzip-devel
+* autoconf
+* automake
+* libtool
+
+For RHEL/CentOS:
+```bash
+sudo yum install boost-devel boost-regex libxml2-devel libzip-devel autoconf automake libtool
+```
+
+For Fedora:
+```bash
+sudo dnf install boost-devel boost-regex libxml2-devel libzip-devel autoconf automake libtool
+```
+### Configure and compile
+
 Once the dependencies have been installed you can configure and compile the code by running:
 
 ```bash
